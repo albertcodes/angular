@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-overload": {
+    "CRUD-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-overload",
+            "outputPath": "dist/CRUD-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-overload:build"
+            "browserTarget": "CRUD-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-overload:build:production"
+              "browserTarget": "CRUD-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-overload:build"
+            "browserTarget": "CRUD-app:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-overload:serve"
+            "devServerTarget": "CRUD-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-overload:serve:production"
+              "devServerTarget": "CRUD-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-overload"
+  "defaultProject": "CRUD-app"
 }
