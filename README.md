@@ -1,2 +1,1 @@
-![](angular.gif)
 ![](angularjs.gif)
