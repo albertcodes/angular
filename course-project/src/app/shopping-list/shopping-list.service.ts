@@ -7,9 +7,6 @@ export class ShoppingListService {
       ];
 
       getIngredients() {
-          /**
-           * Which slice, this returns a copy of the ingredients array
-           */
           return this.ingredients.slice();
       }
 }
