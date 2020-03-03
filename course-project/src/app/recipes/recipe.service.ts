@@ -40,12 +40,16 @@ export class RecipeService {
 
     getRecipes() {
         /**
-         * Slice returns a section of an array with
+         * Slice returns a section or copy of an array with
          * @param start &
          * @param end
          */
         return this.recipes.slice();
 
+    }
+
+    getRecipe(index: number) {
+        return this.recipes[index];
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
