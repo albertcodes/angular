@@ -19,22 +19,22 @@ export class DataStorageService {
 
     getRecipes() {
         this.http.get('https://recipe-book-b18c7.firebaseio.com/recipes.json')
-        .map(
-            (response: any) => {
-                const recipes = response.json();
-                for (const recipe of recipes) {
-                    if (!recipe.ingredients) {
-                        console.log(recipes);
-                        recipe.ingredients = [];
+            .map(
+                (response: any) => {
+                    const recipes = response.json();
+                    for (const recipe of recipes) {
+                        if (!recipe.ingredients) {
+                            console.log(recipes);
+                            recipe.ingredients = [];
+                        }
                     }
+                    return recipes;
                 }
-                return recipes;
-            }
-        )
-        .subscribe(
-            (recipes: Recipe[]) => {
-                this.recipeService.setRecipes(recipes);
-            }
-        );
+            )
+            .subscribe(
+                (recipes: Recipe[]) => {
+                    this.recipeService.setRecipes(recipes);
+                }
+            );
     }
 }
