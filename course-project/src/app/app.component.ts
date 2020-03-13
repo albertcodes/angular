@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
       apiKey: 'AIzaSyBiVEPxiTlGiiSW_B-ro6ZWtKTUJI5QiTg',
       authDomain: 'recipe-book.firebaseapp.com'
     });
+
   }
 
   onNavigate(feature: string) {
