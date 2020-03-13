@@ -28,7 +28,7 @@ export class DataStorageService {
         this.http.get('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token)
             .map(
                 (response: any) => {
-                    const recipes = response.json();
+                    const recipes = response;
                     for (const recipe of recipes) {
                         if (!recipe.ingredients) {
                             console.log(recipes);
