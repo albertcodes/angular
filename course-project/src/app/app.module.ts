@@ -8,9 +8,6 @@ import { RecipesModule } from './recipes/recipes.module';
 // declarations:
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
-
 
 // providers:
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -18,19 +15,19 @@ import { DataStorageService } from './shared/data-storage.service';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SignupComponent,
-    SigninComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RecipesModule,
+    AuthModule
   ],
   providers: [
     ShoppingListService,
