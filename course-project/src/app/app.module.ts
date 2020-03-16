@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // declarations:
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
 
 // providers:
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -16,18 +14,18 @@ import { RecipeService } from './recipes/recipe.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    CoreModule
   ],
   providers: [
     ShoppingListService,
