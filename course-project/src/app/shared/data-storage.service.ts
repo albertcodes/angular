@@ -17,7 +17,7 @@ export class DataStorageService {
     ) { }
 
     storeRecipes() {
-        const token = this.authServive.getToken();
+        // const token = this.authServive.getToken();
         /**
          * The line below will be used to add the extra options of the headers Object & params Object respectively
          * ...    {headers: headers}
@@ -26,21 +26,21 @@ export class DataStorageService {
         // const headers = new HttpHeaders().set('Authorization', 'Bearer token123456');
         // const params = new HttpParams().set('auth', token);
 
-        return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+        // return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
 
         /**
          * Recording or responding to progress via HTTPRequest:
          * Super useful when working with files (downloading or uploading)
          */
-        // const request = new HttpRequest('PUT', 'https://recipe-book-b18c7.firebaseio.com/recipes.json', this.recipeService.getRecipes(),
-        // {reportProgress: true, params: new HttpParams().set('auth', token)});
-        // return this.http.request(req);
+        const request = new HttpRequest('PUT', 'https://recipe-book-b18c7.firebaseio.com/recipes.json', this.recipeService.getRecipes(),
+        {reportProgress: true});
+        return this.http.request(request);
     }
 
     getRecipes() {
-        const token = this.authServive.getToken();
+        // const token = this.authServive.getToken();
 
-        this.http.get<Recipe[]>('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token,
+        this.http.get<Recipe[]>('https://recipe-book-b18c7.firebaseio.com/recipes.json',
         {observe: 'body', responseType: 'json'} // This line sets extra options
         )
             .map(
