@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // declarations & imports/exports:
 import { HeaderComponent } from './header/header.component';
@@ -11,6 +12,7 @@ import { RecipeService } from '../recipes/recipe.service';
 import { DataStorageService } from '../shared/data-storage.service';
 import { AuthService } from '../auth/auth.service';
 import { AuthGuard } from '../auth/auth-guard.service';
+import { AuthInterceptor } from '../shared/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,8 @@ import { AuthGuard } from '../auth/auth-guard.service';
         RecipeService,
         DataStorageService,
         AuthService,
-        AuthGuard
+        AuthGuard,
+        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
       ],
 })
 export class CoreModule {}
