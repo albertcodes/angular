@@ -19,14 +19,15 @@ export class DataStorageService {
     storeRecipes() {
         const token = this.authServive.getToken();
 
-        return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+        return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes(),
+        {observe: 'body'}); // This line sets extra options <Set observe to 'events'>
     }
 
     getRecipes() {
         const token = this.authServive.getToken();
 
         this.http.get<Recipe[]>('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token,
-        { observe: 'body', responseType: 'json'} // This line sets extra options
+        {observe: 'body', responseType: 'json'} // This line sets extra options
         )
             .map(
                 (recipes) => {
