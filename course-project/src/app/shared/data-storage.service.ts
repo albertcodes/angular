@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 import { RecipeService } from '../recipes/recipe.service';
@@ -27,6 +27,14 @@ export class DataStorageService {
         // const params = new HttpParams().set('auth', token);
 
         return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+
+        /**
+         * Recording or responding to progress via HTTPRequest:
+         * Super useful when working with files (downloading or uploading)
+         */
+        // const request = new HttpRequest('PUT', 'https://recipe-book-b18c7.firebaseio.com/recipes.json', this.recipeService.getRecipes(),
+        // {reportProgress: true, params: new HttpParams().set('auth', token)});
+        // return this.http.request(req);
     }
 
     getRecipes() {
