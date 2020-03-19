@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 import { RecipeService } from '../recipes/recipe.service';
@@ -18,9 +18,13 @@ export class DataStorageService {
 
     storeRecipes() {
         const token = this.authServive.getToken();
+        /**
+         * The line below will be used to add the extra options of the headers Object...
+         * ...    {headers: headers}
+         */
+        // const headers = new HttpHeaders().set('Authorization', 'Bearer token123456');
 
-        return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes(),
-        {observe: 'body'}); // This line sets extra options <Set observe to 'events'>
+        return this.http.put('https://recipe-book-b18c7.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
     }
 
     getRecipes() {
