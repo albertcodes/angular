@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "course-project": {
+    "angular-overload": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/course-project",
+            "outputPath": "dist/angular-overload",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,14 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
-            "scripts": [
-              "../node_modules/popper.js/dist/umd/popper.js",
-              "../node_modules/jquery/dist/jquery.min.js",
-              "../node_modules/bootstrap/dist/js/bootstrap.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -68,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "course-project:build"
+            "browserTarget": "angular-overload:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "course-project:build:production"
+              "browserTarget": "angular-overload:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "course-project:build"
+            "browserTarget": "angular-overload:build"
           }
         },
         "test": {
@@ -94,7 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -116,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "course-project:serve"
+            "devServerTarget": "angular-overload:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "course-project:serve:production"
+              "devServerTarget": "angular-overload:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "course-project"
+  "defaultProject": "angular-overload"
 }
