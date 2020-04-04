@@ -1,0 +1,136 @@
+<!-- Modal -->
+<div bsModal #childModal="bs-modal"
+        class="modal fade"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+    <div class="modal-dialog modal-lg" *ngIf="pokeDetails">
+        <div class="modal-content">
+            <div class="modal-header">
+               <h3 class="modal-title pull-left">{{ pokeDetails.name }}</h3>
+                <button type="button"
+                             class="close"
+                             aria-label="Close"
+                             class="close pull-right"
+                             (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+         <div class="modal-body">
+           <div class="container col-md-12">
+            <div class="row">
+
+              <!-- Pokemon Image -->
+              <div class="col-md-2">
+                <img [src]="pokeDetails.image" class="rounded float-left img-thumbnail">
+              </div>
+
+                  <!-- Pokemon Type -->
+                 <div class="col-md-5">
+                    <ul class="list-group">
+                    <li class="list-group-item">
+                      <strong>Height</strong>
+                       <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">&nbsp; {{ pokeDetails.height }}</div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Weight</strong>
+                       <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">&nbsp; {{ pokeDetails.weight }}</div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Type</strong>
+                      <ul>
+                        <li *ngFor="let type of pokeDetails.type">
+                        <span class="align-self-end">{{ type }}</span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Abilities</strong>
+                      <ul>
+                        <li *ngFor="let ability of pokeDetails.abilities">
+                        <span class="align-self-end">{{ ability }}</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Pokemon Stats -->
+                <div class="col-md-5">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <strong>HP</strong>
+                      <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2 float-right">
+                          <span class="badge badge-default">{{ pokeDetails.stats.hp }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                  <li class="list-group-item">
+                    <strong>Attack</strong>
+                      <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">
+                          <span class="badge badge-danger">{{ pokeDetails.stats.attack }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Defense</strong>
+                        <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">
+                          <span class="badge badge-warning">{{ pokeDetails.stats.defense }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Special Attack</strong>
+                        <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">
+                          <span class="badge badge-info">{{ pokeDetails.stats['sp.atk'] }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Special Defense</strong>
+                        <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">
+                          <span class="badge badge-success">{{ pokeDetails.stats['sp.def'] }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Speed</strong>
+                        <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">
+                          <span class="badge badge-primary">{{ pokeDetails.stats.speed }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Total</strong>
+                        <div class="d-flex justify-content-end">
+                        <div class="mr-auto p-2">
+                          <span class="badge badge-default">{{ pokeDetails.stats.total }}
+                        </span>
+                       </div>
+                      </div>
+                    </li>
+                  </ul>
+                 </div>
+                </div>  <!-- End Row -->
+              </div>   <!-- End col-md-12  -->
+            </div>    <!-- End modal body -->
+        </div>       <!-- End modal content -->
+    </div>
+</div>

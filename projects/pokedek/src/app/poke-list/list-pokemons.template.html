@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="col-md-12">
+     <div class="row">
+
+    <!-- Error Message -->
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <div class="col-md-4" *ngFor="let poke of pokemon">
+         <div class="card poke-row text-center">
+            <div class="row text-center text-white">
+              <img [src]="poke.image" class="rounded mx-auto d-block poke-img">
+                </div>
+                 <div class="card-block">
+                  <h3 class="card-title text-center">{{ poke.name }}</h3>
+                   <p class="card-text text-center"><b>Species:</b> {{ poke.species }}</p>
+                    <button type="button" class="btn btn-info"
+                    *ngIf="poke.type.indexOf('Flying') !== -1">Flying</button>
+                    <button type="button" class="btn btn-info"
+                     *ngIf="poke.type.indexOf('Electric') !== -1">Electric</button>
+                    <button type="button" class="btn btn-info"
+                     *ngIf="poke.type.indexOf('Ice') !== -1">Ice</button>
+                    <button type="button" class="btn btn-success"
+                     *ngIf="poke.type.indexOf('Grass') !== -1">Grass</button>
+                    <button type="button" class="btn btn-success"
+                     *ngIf="poke.type.indexOf('Bug') !== -1">Bug</button>
+                    <button type="button" class="btn btn-warning"
+                     *ngIf="poke.type.indexOf('Poison') !== -1">Poison</button>
+                    <button type="button" class="btn btn-danger"
+                     *ngIf="poke.type.indexOf('Fire') !== -1">Fire</button>
+                    <button type="button" class="btn btn-primary"
+                    *ngIf="poke.type.indexOf('Water') !== -1">Water</button>
+                    <button type="button" class="btn btn-secondary"
+                    *ngIf="poke.type.indexOf('Normal') !== -1">Normal</button>
+                    <button type="button" class="btn btn-secondary"
+                    *ngIf="poke.type.indexOf('Psychic') !== -1">Psychic</button>
+                        <span class="card-link" hidden><i class="fa fa-pencil"></i></span>
+                          <span class="card-link text-warning"
+                                     (click)="viewSinglePokemon(poke.id)">
+                             <i class="fa fa-info-circle fa-2x"></i></span>
+                          <span class="card-link text-danger"
+                                     (click)="deletePokemon(poke)"
+                                     tooltip="Careful, this will delete Pokemon!"
+                                     placement="right">
+                                     <i class="fa fa-trash-o fa-2x"></i></span>
+                </div>
+            </div>
+        </div>
+     </div>
+  </div>
+</div>
+<br>
+<pk-details #childModal [pokeDetails]="pokeDetails"></pk-details>
