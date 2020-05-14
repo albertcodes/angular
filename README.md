@@ -1,6 +1,5 @@
-⠀⠀⠀⠀
-<p align="center">
-  ![](angularjs.gif)
-</p>
+⠀⠀⠀⠀<p align="center">
+      ![](angularjs.gif)
+     </p>
 
 
