@@ -490,6 +490,128 @@
           }
         }
       }
+    },
+    "tv-watcher": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/tv-watcher",
+      "sourceRoot": "projects/tv-watcher/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tv-watcher",
+            "index": "projects/tv-watcher/src/index.html",
+            "main": "projects/tv-watcher/src/main.ts",
+            "polyfills": "projects/tv-watcher/src/polyfills.ts",
+            "tsConfig": "projects/tv-watcher/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/tv-watcher/src/favicon.ico",
+              "projects/tv-watcher/src/assets"
+            ],
+            "styles": [
+              "projects/tv-watcher/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tv-watcher/src/environments/environment.ts",
+                  "with": "projects/tv-watcher/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tv-watcher:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tv-watcher:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tv-watcher:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tv-watcher/src/test.ts",
+            "polyfills": "projects/tv-watcher/src/polyfills.ts",
+            "tsConfig": "projects/tv-watcher/tsconfig.spec.json",
+            "karmaConfig": "projects/tv-watcher/karma.conf.js",
+            "assets": [
+              "projects/tv-watcher/src/favicon.ico",
+              "projects/tv-watcher/src/assets"
+            ],
+            "styles": [
+              "projects/tv-watcher/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tv-watcher/tsconfig.app.json",
+              "projects/tv-watcher/tsconfig.spec.json",
+              "projects/tv-watcher/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/tv-watcher/e2e/protractor.conf.js",
+            "devServerTarget": "tv-watcher:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tv-watcher:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "angular-overload"
 }
